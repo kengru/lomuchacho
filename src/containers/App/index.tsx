@@ -1,11 +1,11 @@
 import React from 'react';
-import Profile from "./components/Profile";
+import Profile from "../../components/Profile";
 import './App.css';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Profile userName="kengru"/>
+      <Profile userName="kengru" />
     </div>
   );
 }
