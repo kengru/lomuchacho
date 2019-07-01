@@ -4,14 +4,27 @@
 
 .profileList {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   border: 10px solid #2eb9ce;
   margin-top: 2em;
-  justify-content: center;
 }
 
 .profileCard {
   margin: 2em;
-  padding: 2em;
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+}
+
+@media (max-width: 800px) {
+  .profileCard {
+    margin: 1em;
+    width: 80%;
+    max-width: 200px;
+    height: auto;
+    font-size: 14px;
+  }
 }
 
 .Still {
