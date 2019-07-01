@@ -1,0 +1,26 @@
+.home {
+  padding: 2em 2em;
+}
+
+.profileList {
+  display: flex;
+  border: 10px solid #2eb9ce;
+  margin-top: 2em;
+  justify-content: center;
+}
+
+.profileCard {
+  margin: 2em;
+  padding: 2em;
+}
+
+.Still {
+  margin: 1rem;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+}
+
+.Still img {
+  max-width: 100%;
+  max-height: 100%;
+}
