@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 
-interface ProfileProps {
-  userName: string
-};
-
-const Profile: React.FC<ProfileProps> = props => {
+const Home: React.FC = () => {
   const [count, setCount] = useState(0);
 
   return (
     <div onClick={() => setCount(count + 1)}>
-      kng, {count}
+      ken, {count}
     </div>
   );
 }
 
-export default Profile;
+export default Home;
