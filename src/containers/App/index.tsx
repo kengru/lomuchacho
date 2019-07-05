@@ -10,8 +10,8 @@ import "./App.sass";
 const App: React.FC = () => {
   return (
     <div className="App">
-      <div className="columns">
-        <div className="column is-one-third">
+      <div className="columns is-gapless">
+        <div className="column is-one-quarter">
           <Menu />
         </div>
         <div className="column">

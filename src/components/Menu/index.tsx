@@ -2,16 +2,18 @@ import React from "react";
 
 const Menu: React.FC = () => {
   return (
-    <aside className="menu">
-      <p className="menu-label">
-        Guys
-      </p>
-      <ul className="menu-list">
-        <li>Kendry</li>
-        <li>Leudy</li>
-        <li>Steven</li>
-      </ul>
-    </aside>
+    <div className="section">
+      <aside className="menu">
+        <p className="menu-label">
+          Los Muchachos
+        </p>
+        <ul className="menu-list">
+          <li><a href="https://google.com">Kendry</a></li>
+          <li><a href="https://google.com">Leudy</a></li>
+          <li><a href="https://google.com">Steven</a></li>
+        </ul>
+      </aside>
+    </div>
   );
 }
 
