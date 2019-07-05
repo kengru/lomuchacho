@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
+
+import "./index.css";
 
 const Home: React.FC = () => {
   // const [count, setCount] = useState(0);
 
   return (
-    <section className="hero is-success is-fullheight">
+    <section className="hero is-info is-fullheight">
       <div className="hero-body">
-        <div className="container">
-          <h1 className="title">Fullheight title</h1>
-          <h2 className="subtitle">Fullheight subtitle</h2>
+        <div className="container center">
+          <h1 className="title">Los Muchachos</h1>
+          <h2 className="subtitle">perfiles personales</h2>
         </div>
       </div>
     </section>
