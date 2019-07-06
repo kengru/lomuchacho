@@ -7,12 +7,12 @@ import { load } from "../../helpers/spreadsheet";
 import Menu from "../../components/Menu";
 import Profile from "../../components/Profile";
 import Home from "../../components/Home";
+import Spinner from "../../components/UI/Spinner";
 
 import "./App.sass";
 
 const App = () => {
   const [muchachos, setMuchachos] = useState([]);
-  const [error, setError] = useState(null);
 
   const onLoad = (data, error) => {
     if (data) {
@@ -21,7 +21,6 @@ const App = () => {
       setMuchachos({ muchachos });
     } else {
       console.log(error);
-      setError({ error });
     }
   };
 
@@ -43,7 +42,7 @@ const App = () => {
     <div className="App">
       <div className="columns is-gapless">
         <div className="column is-one-quarter">
-          {error ? null : <Menu muchachos={muchachos} />}
+          <Menu muchachos={muchachos} />
         </div>
         <div className="column">
           <Switch>
