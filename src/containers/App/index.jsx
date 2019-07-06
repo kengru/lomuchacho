@@ -54,7 +54,10 @@ const App = () => {
         </div>
         <div className="column">
           <Switch>
-            <Route path="/profile/:user" component={Profile} />
+            <Route
+              path="/profile/:user"
+              component={() => <Profile muchachos={muchachos} />}
+            />
             <Route path="/" component={Home} />
           </Switch>
         </div>

@@ -15,7 +15,7 @@ export function load(callback) {
               .map(muchacho => ({
                 username: muchacho[0],
                 name: muchacho[1],
-                birthDate: muchacho[2],
+                birthday: muchacho[2],
                 photo: muchacho[3],
                 quote: muchacho[4]
               }))
