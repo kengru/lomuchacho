@@ -7,18 +7,26 @@ import { load } from "../../helpers/spreadsheet";
 import Menu from "../../components/Menu";
 import Profile from "../../components/Profile";
 import Home from "../../components/Home";
-import Spinner from "../../components/UI/Spinner";
 
 import "./App.sass";
 
 const App = () => {
+  const [menuItems, setMenuItems] = useState([]);
   const [muchachos, setMuchachos] = useState([]);
 
   const onLoad = (data, error) => {
     if (data) {
       const muchachos = data.muchachos;
-      console.log(muchachos);
-      setMuchachos({ muchachos });
+      const menuItems = muchachos.map(el => {
+        const menuItem = {
+          username: el.username,
+          name: el.name
+        };
+        return menuItem;
+      });
+      // console.log(muchachos);
+      setMenuItems(menuItems);
+      setMuchachos(muchachos);
     } else {
       console.log(error);
     }
@@ -42,7 +50,7 @@ const App = () => {
     <div className="App">
       <div className="columns is-gapless">
         <div className="column is-one-quarter">
-          <Menu muchachos={muchachos} />
+          <Menu muchachos={menuItems} />
         </div>
         <div className="column">
           <Switch>
