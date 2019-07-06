@@ -8,7 +8,7 @@ interface MenuItemProps {
 
 const MenuItem: React.FC<MenuItemProps> = props => {
   return (
-    <Link to={`/profile/:${props.username}`}>
+    <Link to={`/profile/${props.username}`}>
       {props.name}
     </Link>
   );

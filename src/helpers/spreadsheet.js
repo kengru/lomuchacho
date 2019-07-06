@@ -11,13 +11,15 @@ export function load(callback) {
         response => {
           const data = response.result.values;
           const muchachos =
-            data.map(muchacho => ({
-              username: muchacho[0],
-              name: muchacho[1],
-              birthDate: muchacho[2],
-              photo: muchacho[3],
-              quote: muchacho[4]
-            })) || [];
+            data
+              .map(muchacho => ({
+                username: muchacho[0],
+                name: muchacho[1],
+                birthDate: muchacho[2],
+                photo: muchacho[3],
+                quote: muchacho[4]
+              }))
+              .slice(1) || [];
           callback({
             muchachos
           });
