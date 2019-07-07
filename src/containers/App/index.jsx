@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
-
-import config from "../../config";
-import { load } from "../../helpers/spreadsheet";
 
 import Menu from "../../components/Menu";
-import Profile from "../../components/Profile";
-import Home from "../../components/Home";
+import Routes from "../../components/Routes";
+
+import { load } from "../../helpers/spreadsheet";
+import config from "../../config";
 
 import "./App.sass";
 
@@ -53,13 +51,7 @@ const App = () => {
           <Menu muchachos={menuItems} />
         </div>
         <div className="column">
-          <Switch>
-            <Route
-              path="/profile/:user"
-              component={() => <Profile muchachos={muchachos} />}
-            />
-            <Route path="/" component={Home} />
-          </Switch>
+          <Routes muchachos={muchachos} />
         </div>
       </div>
     </div>

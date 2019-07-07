@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import Spinner from "../UI/Spinner";
+
 interface Muchacho {
   userName: string,
   name: string,
@@ -9,16 +11,17 @@ interface Muchacho {
 };
 
 interface MuchachosProps {
-  muchachos: Muchacho[];
+  muchachos: Muchacho[],
+  user: string
 }
 
-const Profile: React.FC<MuchachosProps> = (props, { match }) => {
+const Profile: React.FC<MuchachosProps> = props => {
   const [count, setCount] = useState(0);
-  console.log(match);
+  console.log(props);
 
   return (
     <div onClick={() => setCount(count + 1)}>
-      kng, {match.params.user}
+      {props.muchachos.length ? props.user : <Spinner />}
     </div>
   );
 }
