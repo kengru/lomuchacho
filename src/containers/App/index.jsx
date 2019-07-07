@@ -1,27 +1,32 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
-
-import config from "../../config";
-import { load } from "../../helpers/spreadsheet";
 
 import Menu from "../../components/Menu";
-import Profile from "../../components/Profile";
-import Home from "../../components/Home";
+import Routes from "../../components/Routes";
+
+import { load } from "../../helpers/spreadsheet";
+import config from "../../config";
 
 import "./App.sass";
 
 const App = () => {
+  const [menuItems, setMenuItems] = useState([]);
   const [muchachos, setMuchachos] = useState([]);
-  const [error, setError] = useState(null);
 
   const onLoad = (data, error) => {
     if (data) {
       const muchachos = data.muchachos;
-      console.log(muchachos);
-      setMuchachos({ muchachos });
+      const menuItems = muchachos.map(el => {
+        const menuItem = {
+          username: el.username,
+          name: el.name
+        };
+        return menuItem;
+      });
+      // console.log(muchachos);
+      setMenuItems(menuItems);
+      setMuchachos(muchachos);
     } else {
       console.log(error);
-      setError({ error });
     }
   };
 
@@ -43,13 +48,10 @@ const App = () => {
     <div className="App">
       <div className="columns is-gapless">
         <div className="column is-one-quarter">
-          {error ? null : <Menu muchachos={muchachos} />}
+          <Menu muchachos={menuItems} />
         </div>
         <div className="column">
-          <Switch>
-            <Route path="/profile/:user" component={Profile} />
-            <Route path="/" component={Home} />
-          </Switch>
+          <Routes muchachos={muchachos} />
         </div>
       </div>
     </div>
