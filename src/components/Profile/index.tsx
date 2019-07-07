@@ -10,12 +10,12 @@ interface Muchacho {
   quote: string
 };
 
-interface MuchachosProps {
+interface ProfileProps {
   muchachos: Muchacho[],
   user: string
 }
 
-const Profile: React.FC<MuchachosProps> = props => {
+const Profile: React.FC<ProfileProps> = props => {
   const [count, setCount] = useState(0);
   console.log(props);
 
