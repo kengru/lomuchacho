@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Spinner from "../UI/Spinner";
+import emptyM from "./emptyMuchacho"; 
 
 interface Muchacho {
-  userName: string,
+  username: string,
   name: string,
   birthday: string,
   photo: string,
@@ -16,12 +17,16 @@ interface ProfileProps {
 }
 
 const Profile: React.FC<ProfileProps> = props => {
-  const [count, setCount] = useState(0);
-  console.log(props);
+  const [user, setUser] = useState<Muchacho>(emptyM);
+  
+  useEffect(() => {
+    const foundUser = props.muchachos.find(muchacho => muchacho.username === props.user) || emptyM;
+    setUser(foundUser);
+  }, [props.user, props.muchachos])
 
   return (
-    <div onClick={() => setCount(count + 1)}>
-      {props.muchachos.length ? props.user : <Spinner />}
+    <div>
+      {props.muchachos.length ? user.username : <Spinner />}
     </div>
   );
 }
