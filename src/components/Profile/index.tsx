@@ -1,36 +1,31 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
-import Spinner from "../UI/Spinner";
+// import Spinner from "../UI/Spinner";
 import ProfilePicture from "./ProfileItems/ProfilePicture";
 
-import emptyM from "./emptyMuchacho"; 
+import { Muchacho, ProfileProps } from "./ProfileInterfaces";
+import emptyM from "./emptyMuchacho";
 
-interface Muchacho {
-  username: string,
-  name: string,
-  birthday: string,
-  photo: string,
-  quote: string
-};
-
-interface ProfileProps {
-  muchachos: Muchacho[],
-  user: string
-}
+const SectionStyled = styled.section`
+  height: 100%;
+  background: #d0d1cd;
+  padding: 2rem;
+`;
 
 const Profile: React.FC<ProfileProps> = props => {
   const [user, setUser] = useState<Muchacho>(emptyM);
-  
+
   useEffect(() => {
     const foundUser = props.muchachos.find(muchacho => muchacho.username === props.user) || emptyM;
     setUser(foundUser);
   }, [props.user, props.muchachos])
 
   return (
-    <div>
-      {props.muchachos.length ? user.username : <Spinner />}
-      <ProfilePicture photo={user.photo} name={user.name}/>
-    </div>
+    <SectionStyled>
+      {/* {props.muchachos.length ? user.username : <Spinner />} */}
+      <ProfilePicture photo={user.photo} name={user.name} />
+    </SectionStyled>
   );
 }
 
