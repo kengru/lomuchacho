@@ -3,8 +3,6 @@ import React from "react";
 import "./index.css";
 
 const Home: React.FC = () => {
-  // const [count, setCount] = useState(0);
-
   return (
     <section className="hero is-info is-fullheight">
       <div className="hero-body">
