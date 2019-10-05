@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 import Spinner from "../UI/Spinner";
+import ProfilePicture from "./ProfileItems/ProfilePicture";
+
 import emptyM from "./emptyMuchacho"; 
 
 interface Muchacho {
@@ -27,6 +29,7 @@ const Profile: React.FC<ProfileProps> = props => {
   return (
     <div>
       {props.muchachos.length ? user.username : <Spinner />}
+      <ProfilePicture photo={user.photo} name={user.name}/>
     </div>
   );
 }
